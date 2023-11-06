@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="style_css.css">
+    <script src="https://kit.fontawesome.com/e8226afc97.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Navigation</title>
+</head>
+<body>
+    <div class="logo">
+            <h1>LOGO</h1>
+        </div>
+        <input type="checkbox" id="check_menu" >
+        <label id="#label_check" for="check_menu">
+            <i class="fa-solid fa-bars icon_menu "></i>
+        </label>
+    <nav>
+        <ul class="nav-links">
+            
+            <li><a class="inicio" href="#">INICIO</a></li>
+            <li class="menu">
+                <a href="#">QUIENES SOMOS</a>
+                <ul class="sub-menu">
+                    <li><a href="#">HISTORIA</a></li>
+                    <li><a href="#">MISION / VISION</a></li>
+                    <li><a href="#">GESTION</a></li>
+                </ul>
+            </li>
+            <li class="menu">
+                <a href="#">EDICIONES</a>
+                <ul class="sub-menu">
+                    <li><a href="#">LIBRERIA COFAE</a></li>
+                    <li><a href="#">EDICIONES COFAE</a></li>
+                </ul>
+            </li>
+            <li class="menu">
+                <a href="#">NOVEDADES</a>
+                <ul class="sub-menu">
+                    <li><a href="#">NOTICIAS</a></li>
+                    <li><a href="#">PROGRMACION TRIMESTRAL</a></li>
+                </ul>
+            </li>
+            <li><a class="campus" href="#">CAMPUS</a></li>
+            <li class="menu">
+                <a href="#">CONTACTO</a>
+                <ul class="sub-menu">
+                    <li><a href="#">INSTAGRAM</a></li>
+                    <li><a href="#">TELEGRAM</a></li>
+                    <li><a href="#">YOUTUBE</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 14px;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+
+nav {
+    background: #01631b;
+    border-radius: 5px;
+
+}
+
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.sub-menu {
+    display: none;
+    list-style: none;
+    padding: 1rem 0;
+    position: absolute;
+    background-color: #01631b
+}
+
+.sub-menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+ .menu:hover{
+transform: scale(1.1);
+background:  #2ecc71;
+border-radius: 5px;
+padding: 3px;
+transition: all 30ms ease;
+}
+
+.menu:hover .sub-menu {
+    display: block;
+    width: 150px;
+    border-radius: 3px;
+}
+
+.sub-menu a:hover{
+    background:  #abebc6 ;
+    transition: all 300ms ease;
+    padding-left: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+   
+}
+/*ICONS*/
+.icon_menu{
+    font-size: 26px;
+    cursor: pointer;
+    width: 26px;
+    height: 100%;
+    display: none;
+    align-items: center;
+}
+
+#check_menu{
+    display: none; 
+}
+
+#label_check{
+    width: 26px;
+    height: 100%;
+    display: none;
+
+}
+
+
+/*Esto hace que la pagina se adapte a un ancho de 768px*/
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        padding: 15px;
+        position: fixed;
+        background: #01631b;
+        left: 0;
+        top: 65px;
+        border-radius: 5px;
+        width: 100%;
+        height: 0;
+        transition: all 300ms ease;
+        z-index: 100px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .menu:hover{
+        width: 110px;
+        border-color: #fff;
+
+    }
+    .menu{
+    margin-left: 0;
+        padding: 5px;
+    }
+
+    .logo{
+        font-size: 10px;
+    }
+    .sub-menu{
+        left: 100px;
+    }
+
+    #label_check{
+        display: block;
+    }
+
+    .icon_menu{
+        display: flex;
+    }
+
+    #check_menu:checked ~ nav > .nav-links{
+        height: 300px;
+        visibility: visible;
+        opacity: 1;
+    }
+}
